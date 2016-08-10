@@ -15,15 +15,17 @@ public class User
     @Column
     private int id;
     @Column
-    private String firstname;
+    private String name;
     @Column
     private String secondname;
-    @Column
+    @Column(unique = true)
     private String email;
-    @Column
+    @Column(unique = true)
     private String phone;
     @Column
     private String password;
+    @Transient
+    private String passwordConfirm;
     @Column
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
@@ -43,14 +45,14 @@ public class User
         this.id = id;
     }
 
-    public String getFirstname()
+    public String getName()
     {
-        return firstname;
+        return name;
     }
 
-    public void setFirstname(String firstname)
+    public void setName(String firstname)
     {
-        this.firstname = firstname;
+        this.name = firstname;
     }
 
     public String getSecondname()
@@ -101,5 +103,15 @@ public class User
     public void setRegistrationDate(Date registrationDate)
     {
         this.registrationDate = registrationDate;
+    }
+
+    public String getPasswordConfirm()
+    {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm)
+    {
+        this.passwordConfirm = passwordConfirm;
     }
 }
