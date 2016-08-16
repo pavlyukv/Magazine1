@@ -8,7 +8,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <form:form action="/loginprocessing" method="post">
-    <input name="username" type="text" placeholder="Login">
-    <input name="password" type="password" placeholder="Password">
+    <p>Login with your e-mail or phone</p>
+
+    <input name="username" type="text" placeholder="Login"><br>
+
+    <input name="password" type="password" placeholder="Password"><br>
+
     <input type="submit" value="Login">
 </form:form>

@@ -10,11 +10,17 @@
 <html>
     <head>
         <title>My First Web Shop</title>
+        <style>
+            span
+            {
+                color: red;
+            }
+        </style>
     </head>
-    <body>
-        <div><tiles:insertAttribute name="header"/></div>
-        <div><tiles:insertAttribute name="menu"/> </div>
-        <div><tiles:insertAttribute name="body"/> </div>
-        <div><tiles:insertAttribute name="footer"/> </div>
+    <body style="background-color: lightgray;">
+        <div style="background-color: cadetblue;"><tiles:insertAttribute name="header"/></div>
+        <div style="background-color: darkkhaki;"><tiles:insertAttribute name="menu"/> </div>
+        <div style="background-color: darkseagreen;"><tiles:insertAttribute name="body"/> </div>
+        <div style="background-color: dimgray;"><tiles:insertAttribute name="footer"/> </div>
     </body>
 </html>

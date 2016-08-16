@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.lviv.pancha.entity.User;
 import ua.lviv.pancha.services.UserService;
+import ua.lviv.pancha.validations.UserValidator;
+
+import java.security.Principal;
 
 /**
  * Created by Vasyl.Pavlyuk on 10.08.2016.
@@ -19,6 +22,9 @@ public class UserController
 {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserValidator userValidator;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home()
@@ -42,17 +48,24 @@ public class UserController
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute User user, BindingResult bindingResult)
     {
-//        userValidator.validate(user, bindingResult);
-//        if (bindingResult.hasErrors())
-//        {
-//            return "views-base-registration";
-//        }
-//        else
-//        {
+        userValidator.validate(user, bindingResult);
+        if (bindingResult.hasErrors())
+        {
+            return "base/registration";
+        }
+        else
+        {
             BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             userService.addOrEdit(user);
-//        }
-        return "redirect:/";
+        }
+        return "redirect:/loginpage";
+    }
+
+    @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
+    public String cabinet(Principal principal, Model model)
+    {
+        model.addAttribute("user", userService.findOne(Integer.parseInt(principal.getName())));
+        return "base/cabinet";
     }
 }

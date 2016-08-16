@@ -6,6 +6,7 @@
 
     <security:http>
         <security:intercept-url pattern="/" access="permitAll()"/>
+        <security:intercept-url pattern="/cabinet" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 
         <security:form-login login-page="/loginpage" login-processing-url="/loginprocessing"/>
@@ -17,7 +18,7 @@
         <security:authentication-provider>
             <security:user-service>
                 <security:user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-                <security:user name="user" password="user" authorities="ROLE_USER"/>
+                <!--<security:user name="user" password="user" authorities="ROLE_USER"/>-->
             </security:user-service>
         </security:authentication-provider>
 

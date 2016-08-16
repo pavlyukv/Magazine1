@@ -8,14 +8,24 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <form:form action="/registration" method="post" modelAttribute="user">
-    <form:errors path="name"/>
+    <p>Please register</p>
+
     <form:input path="name" placeholder="Name"/>
-    <form:input path="secondname" placeholder="Secondname"/>
-    <form:errors path="email"/>
+    <span>*</span><form:errors path="name"/><br>
+
+    <form:input path="secondname" placeholder="Secondname"/><br>
+
     <form:input path="email" placeholder="E-mail"/>
+    <span>*</span><form:errors path="email"/><br>
+
     <form:input path="phone" placeholder="Phone"/>
-    <form:errors path="password"/>
+    <span>*</span><form:errors path="phone"/><br>
+
     <form:password path="password" placeholder="Password"/>
+    <span>*</span><form:errors path="password"/><br>
+
     <form:password path="passwordConfirm" placeholder="Confirm Password"/>
+    <span>*</span><br>
+
     <form:button>Register</form:button>
 </form:form>

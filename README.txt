@@ -1,3 +1,5 @@
+E-commerce web server with login\registration form and possibility to choose\buy products from different groups
+
 Used languages, frameworks & technologies with IntelliJ IDEA:
 - JAVA
 - Maven
