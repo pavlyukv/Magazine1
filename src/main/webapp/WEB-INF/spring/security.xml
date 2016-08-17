@@ -7,7 +7,9 @@
     <security:http>
         <security:intercept-url pattern="/" access="permitAll()"/>
         <security:intercept-url pattern="/cabinet" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/cabinet/*" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
 
         <security:form-login login-page="/loginpage" login-processing-url="/loginprocessing"/>
         <security:logout logout-url="/logout"/>

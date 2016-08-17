@@ -26,12 +26,6 @@ public class UserController
     @Autowired
     private UserValidator userValidator;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home()
-    {
-        return "base/home";
-    }
-
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String login()
     {
