@@ -2,16 +2,16 @@ package ua.lviv.pancha.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import ua.lviv.pancha.services.ProductService;
+import ua.lviv.pancha.services.BasketService;
 
 /**
- * Created by Vasyl.Pavlyuk on 17.08.2016.
+ * Created by Vasyl.Pavlyuk on 20.08.2016.
  */
 @Controller
-public class ProductController
+public class BasketController
 {
     @Autowired
-    private ProductService productService;
+    private BasketService basketService;
 
     // TODO
 }

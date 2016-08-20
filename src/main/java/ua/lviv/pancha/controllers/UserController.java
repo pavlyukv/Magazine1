@@ -62,4 +62,10 @@ public class UserController
         model.addAttribute("user", userService.findOne(Integer.parseInt(principal.getName())));
         return "base/cabinet";
     }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin()
+    {
+        return "base/admin";
+    }
 }

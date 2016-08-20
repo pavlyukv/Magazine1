@@ -3,6 +3,7 @@ package ua.lviv.pancha.entity;
 import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Vasyl.Pavlyuk on 08.08.2016.
@@ -29,6 +30,10 @@ public class User
     @Column
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
+
+    // Baskets
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Basket> basketList;
 
     public User()
     {
@@ -113,5 +118,31 @@ public class User
     public void setPasswordConfirm(String passwordConfirm)
     {
         this.passwordConfirm = passwordConfirm;
+    }
+
+    public List<Basket> getBasketList()
+    {
+        return basketList;
+    }
+
+    public void setBasketList(List<Basket> basketList)
+    {
+        this.basketList = basketList;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return id;
     }
 }

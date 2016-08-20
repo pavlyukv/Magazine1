@@ -11,4 +11,5 @@
 <p>E-mail: ${user.email}</p>
 <p>Phone: ${user.phone}</p>
 <p>Registration date: ${user.registrationDate.toString()}</p>
+
 <%--TODO button "Edit"--%>

@@ -6,32 +6,31 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Vasyl.Pavlyuk on 17.08.2016.
+ * Created by Vasyl.Pavlyuk on 20.08.2016.
  */
-@Entity(name = "Group2") // Because word Group reserved by SQL
-public class Group
+@Entity
+public class Basket
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
     @Column
-    private String name;
+    private boolean ordered;
     @Column
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
 
-    // Group + Groups
+    // User
     @ManyToOne(fetch = FetchType.LAZY)
-    private Group group;
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Group> groupList;
+    private User user;
 
     // Products
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "prod_in_bask", joinColumns = @JoinColumn(name = "id_bask"), inverseJoinColumns = @JoinColumn(name = "id_prod"))
     private List<Product> productList;
 
-    public Group()
+    public Basket()
     {
         registrationDate = Calendar.getInstance().getTime();
     }
@@ -46,14 +45,14 @@ public class Group
         this.id = id;
     }
 
-    public String getName()
+    public boolean isOrdered()
     {
-        return name;
+        return ordered;
     }
 
-    public void setName(String name)
+    public void setOrdered(boolean ordered)
     {
-        this.name = name;
+        this.ordered = ordered;
     }
 
     public Date getRegistrationDate()
@@ -66,6 +65,16 @@ public class Group
         this.registrationDate = registrationDate;
     }
 
+    public User getUser()
+    {
+        return user;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
+    }
+
     public List<Product> getProductList()
     {
         return productList;
@@ -76,34 +85,14 @@ public class Group
         this.productList = productList;
     }
 
-    public Group getGroup()
-    {
-        return group;
-    }
-
-    public void setGroup(Group group)
-    {
-        this.group = group;
-    }
-
-    public List<Group> getGroupList()
-    {
-        return groupList;
-    }
-
-    public void setGroupList(List<Group> groupList)
-    {
-        this.groupList = groupList;
-    }
-
     @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Group group = (Group) o;
-        return id == group.id;
+        Basket basket = (Basket) o;
+        return id == basket.id;
     }
 
     @Override

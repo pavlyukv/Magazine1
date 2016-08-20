@@ -6,6 +6,8 @@ import ua.lviv.pancha.entity.Group;
 import ua.lviv.pancha.repository.GroupRepo;
 import ua.lviv.pancha.services.GroupService;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -16,6 +18,28 @@ public class GroupServiceImpl implements GroupService
 {
     @Autowired
     private GroupRepo groupRepo;
+
+    public List<Group> findAllByGroup(Group group)
+    {
+        List<Group> groupList = groupRepo.findByGroup(group);
+        Collections.sort(groupList, new Comparator<Group>()
+        {
+            @Override
+            public int compare(Group o1, Group o2)
+            {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        return groupList;
+    }
+
+    public void add(String name)
+    {
+        Group group = new Group();
+        group.setName(name);
+        groupRepo.save(group);
+    }
 
     public void addOrEdit(Group group)
     {

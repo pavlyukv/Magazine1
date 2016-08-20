@@ -53,13 +53,9 @@ public class UserValidator implements Validator
             errors.rejectValue("phone", "phone.used");
 
         // check password
-        if ((user.getPassword().length() > 0) && (user.getPassword().length() < 6))
-        {
+        if ((user.getPassword().length() > 0) && (user.getPassword().length() < 8))
             errors.rejectValue("password", "password.short");
-        }
-        if (!user.getPassword().equals(user.getPasswordConfirm()) && !errors.hasFieldErrors("password"))
-        {
+        else if (!user.getPassword().equals(user.getPasswordConfirm()) && !errors.hasFieldErrors("password"))
             errors.rejectValue("password", "bad.password");
-        }
     }
 }

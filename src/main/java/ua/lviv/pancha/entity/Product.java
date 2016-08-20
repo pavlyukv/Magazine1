@@ -3,6 +3,7 @@ package ua.lviv.pancha.entity;
 import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Vasyl.Pavlyuk on 17.08.2016.
@@ -28,8 +29,15 @@ public class Product
     @Column
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
+
+    // Group
     @ManyToOne(fetch = FetchType.LAZY)
     private Group group;
+
+    // Baskets
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "prod_in_bask", joinColumns = @JoinColumn(name = "id_prod"), inverseJoinColumns = @JoinColumn(name = "id_bask"))
+    private List<Basket> basketList;
 
     public Product()
     {
@@ -114,5 +122,31 @@ public class Product
     public void setQuantity(int quantity)
     {
         this.quantity = quantity;
+    }
+
+    public List<Basket> getBasketList()
+    {
+        return basketList;
+    }
+
+    public void setBasketList(List<Basket> basketList)
+    {
+        this.basketList = basketList;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+        return id == product.id;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return id;
     }
 }

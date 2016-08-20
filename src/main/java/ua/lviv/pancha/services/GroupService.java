@@ -9,6 +9,10 @@ import java.util.List;
  */
 public interface GroupService
 {
+    List<Group> findAllByGroup(Group group);
+
+    void add(String name);
+
     void addOrEdit(Group group);
 
     void delete(int id);

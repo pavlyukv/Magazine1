@@ -1,5 +1,6 @@
 package ua.lviv.pancha.services;
 
+import ua.lviv.pancha.entity.Group;
 import ua.lviv.pancha.entity.Product;
 
 import java.util.List;

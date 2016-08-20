@@ -16,9 +16,9 @@ public class BaseController
         return "base/home";
     }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin()
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String about()
     {
-        return "admin/admin";
+        return "base/about";
     }
 }
