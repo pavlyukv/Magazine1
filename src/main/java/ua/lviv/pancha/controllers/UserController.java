@@ -26,19 +26,20 @@ public class UserController
     @Autowired
     private UserValidator userValidator;
 
+    // Login
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String login()
     {
         return "base/login";
     }
 
+    // Registartion
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model)
     {
         model.addAttribute("user", new User());
         return "base/registration";
     }
-
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute User user, BindingResult bindingResult)
     {
@@ -56,6 +57,7 @@ public class UserController
         return "redirect:/loginpage";
     }
 
+    // Cabinet
     @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
     public String cabinet(Principal principal, Model model)
     {
@@ -63,6 +65,7 @@ public class UserController
         return "base/cabinet";
     }
 
+    // Admin
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin()
     {

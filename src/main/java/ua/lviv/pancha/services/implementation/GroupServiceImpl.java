@@ -22,6 +22,8 @@ public class GroupServiceImpl implements GroupService
     public List<Group> findAllByGroup(Group group)
     {
         List<Group> groupList = groupRepo.findByGroup(group);
+
+        // Sort by Name
         Collections.sort(groupList, new Comparator<Group>()
         {
             @Override
@@ -34,10 +36,13 @@ public class GroupServiceImpl implements GroupService
         return groupList;
     }
 
-    public void add(String name)
+    public void add(String name, String id)
     {
         Group group = new Group();
         group.setName(name);
+        int i = Integer.parseInt(id);
+        if (i > 0)
+            group.setGroup(findOne(i));
         groupRepo.save(group);
     }
 

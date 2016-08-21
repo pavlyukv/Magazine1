@@ -11,7 +11,7 @@ public interface GroupService
 {
     List<Group> findAllByGroup(Group group);
 
-    void add(String name);
+    void add(String name, String id);
 
     void addOrEdit(Group group);
 

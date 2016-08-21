@@ -26,7 +26,7 @@ public class Basket
     private User user;
 
     // Products
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "prod_in_bask", joinColumns = @JoinColumn(name = "id_bask"), inverseJoinColumns = @JoinColumn(name = "id_prod"))
     private List<Product> productList;
 

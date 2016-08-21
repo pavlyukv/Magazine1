@@ -19,8 +19,8 @@
     </head>
     <body style="background-color: lightgray;">
         <div style="background-color: cadetblue;"><tiles:insertAttribute name="header"/></div>
-        <div style="background-color: darkkhaki; clear: both;"><tiles:insertAttribute name="menu"/> </div>
+        <div style="background-color: darkseagreen; clear: both;"><tiles:insertAttribute name="menu"/> </div>
         <div style="background-color: darkseagreen; clear: both;"><tiles:insertAttribute name="body"/> </div>
-        <div style="background-color: dimgray; clear: both;"><tiles:insertAttribute name="footer"/> </div>
+        <div style="background-color: cadetblue; clear: both;"><tiles:insertAttribute name="footer"/> </div>
     </body>
 </html>

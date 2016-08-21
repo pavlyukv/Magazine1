@@ -1,6 +1,7 @@
 package ua.lviv.pancha.entity;
 
 import javax.persistence.*;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,8 @@ public class Product
     @Column
     @Lob
     private byte[] image = new byte[1];
+    @Transient
+    private String image64;
     @Column
     @Temporal(TemporalType.DATE)
     private Date registrationDate;
@@ -132,6 +135,22 @@ public class Product
     public void setBasketList(List<Basket> basketList)
     {
         this.basketList = basketList;
+    }
+
+    public String getImage64()
+    {
+        return image64;
+    }
+
+    public void setImage64(String image64)
+    {
+        this.image64 = image64;
+    }
+
+    // Convert image -> image64
+    public void loadImage()
+    {
+        image64 = Base64.getEncoder().encodeToString(image);
     }
 
     @Override

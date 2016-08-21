@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <form action="/admin/addGroup?${_csrf.parameterName}=${_csrf.token}" method="post">
-    <input type="text" name="name" placeholder="Name"/>
-    <button type="submit">Add Group</button>
+    <p>Add Group:</p>
+    <input type="text" name="name" placeholder="Name"/><br>
+    <input type="text" name="id" value="${id}" hidden="true"/>
+    <button type="submit">Add</button>
 </form>
