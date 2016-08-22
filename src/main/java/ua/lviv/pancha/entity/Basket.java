@@ -22,7 +22,7 @@ public class Basket
     private Date registrationDate;
 
     // User
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
     // Products

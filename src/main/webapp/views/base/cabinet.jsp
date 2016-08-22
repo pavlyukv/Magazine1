@@ -19,3 +19,6 @@
 <form:form method="get" action="/cabinet/basket">
     <button type="submit">Basket</button>
 </form:form>
+<form:form method="get" action="/cabinet/orders">
+    <button type="submit">All orders</button>
+</form:form>

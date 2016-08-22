@@ -11,3 +11,6 @@
 <form:form method="get" action="/group/0">
     <button type="submit">Content</button>
 </form:form>
+<form:form method="get" action="/admin/orders">
+    <button type="submit">All orders</button>
+</form:form>

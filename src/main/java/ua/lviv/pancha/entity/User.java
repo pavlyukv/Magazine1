@@ -145,4 +145,10 @@ public class User
     {
         return id;
     }
+
+    @Override
+    public String toString()
+    {
+        return email;
+    }
 }
