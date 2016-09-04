@@ -2,6 +2,7 @@ Simple "web shop" server with login\registration forms and possibility to choose
 
 - With admin rights you can add\edit\delete groups and products, view all orders from all users.
 - With user rights you can login\register, choose different groups\products, add\remove to\from basket, clear it or order.
+- All products, groups, users, baskets and orders are saved in DB.
 
 Used languages, frameworks & technologies with IntelliJ IDEA:
 - JAVA
@@ -20,3 +21,12 @@ Used languages, frameworks & technologies with IntelliJ IDEA:
 - HTML
 - CSS
 - JavaScript
+
+RFU:
+- Refactoring code
+- Search products
+- Sort products
+- Add user edit
+- Add admin users managment
+- Correct delete of product what was ordered\buyed
+- ...

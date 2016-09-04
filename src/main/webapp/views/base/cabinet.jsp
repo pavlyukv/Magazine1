@@ -14,7 +14,7 @@
 <p>Phone: ${user.phone}</p>
 <p>Registration date: ${user.registrationDate.toString()}</p>
 
-<%--TODO button "Edit"--%>
+<%--TODO button "Edit user"--%>
 
 <form:form method="get" action="/cabinet/basket">
     <button type="submit">Basket</button>

@@ -115,7 +115,7 @@ public class BasketController
         return "redirect:/cabinet/basket";
     }
 
-    // Cler all from basket
+    // Clear all from basket
     @RequestMapping(value = "/cabinet/clear", method = RequestMethod.GET)
     public String clearBasket(Principal principal)
     {
@@ -173,6 +173,7 @@ public class BasketController
         return "group/allOrders";
     }
 
+    // Look one order by user
     @RequestMapping(value = "/cabinet/order/{id}", method = RequestMethod.GET)
     public String order(@PathVariable String id, Principal principal, Model model)
     {
@@ -210,6 +211,7 @@ public class BasketController
         return "group/order";
     }
 
+    // Take a care for user order
     @RequestMapping(value = "/admin/buy/{id}", method = RequestMethod.GET)
     public String buy(@PathVariable String id, Model model)
     {

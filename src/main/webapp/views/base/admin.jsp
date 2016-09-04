@@ -8,6 +8,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <h1 style="color: red;"> Admin allmighty! :) </h1>
+
+<%--TODO button "Edit users"--%>
+
 <form:form method="get" action="/group/0">
     <button type="submit">Content</button>
 </form:form>
